@@ -1,6 +1,6 @@
 """GCP Monitor sub-agent for querying Cloud Monitoring and Logging."""
 
-from googel.adk import Agent
+from google.adk import Agent
 from google.adk.agents import LlmAgent
 from . import prompt
 
