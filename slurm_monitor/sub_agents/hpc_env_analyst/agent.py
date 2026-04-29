@@ -36,8 +36,8 @@ def query_hpc_logs(project_id: str, resource_type: str = "gce_instance") -> str:
     # TODO: Implement google-cloud-logging logic here
     return f"Simulated output: No critical errors found in logs for {resource_type}."
 
-gcp_monitor_agent = LlmAgent(
-    name="gcp_monitor_agent",
+hpc_env_analyst_agent = LlmAgent(
+    name="hpc_env_analyst_agent",
     model="gemini-2.5-pro",
     description="Analyzes GCP monitoring and logging data to track HPC resources like GCE VMs and Filestore.",
     instruction=prompt.HPC_ENV_ANALYST_PROMPT,
