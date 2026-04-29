@@ -1,4 +1,4 @@
-"""Prompt for the HPC Environment Coordinator agent."""
+# Prompt for the HPC Environment Coordinator agent.
 
 HPC_ENV_ANALYST_PROMPT = """
 Role: Act as a specialized High-Performance Computing (HPC) environment coordinator.
@@ -35,4 +35,5 @@ Expected Output: The subagent MUST return a comprehensive summary of active GCP 
 Input: Prompt the user to provide the specific cluster partition they wish to analyze (e.g., standard, gpu).
 Action: Call the slurm_analyst_agent, passing the user-provided partition name.
 Expected Output: The subagent MUST return a comprehensive environment analysis (node availability, queue congestion) for the specified target.
+
 """

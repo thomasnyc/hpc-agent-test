@@ -1,7 +1,10 @@
 """GCP Monitor sub-agent for querying Cloud Monitoring and Logging."""
 
+from googel.adk import Agent
 from google.adk.agents import LlmAgent
 from . import prompt
+
+MODEL = "gemini-2.5-pro"
 
 def get_gce_vm_status(project_id: str, zone: str = "") -> str:
     """Retrieves the status of GCE VMs used for HPC workloads.
@@ -34,10 +37,10 @@ def query_hpc_logs(project_id: str, resource_type: str = "gce_instance") -> str:
     return f"Simulated output: No critical errors found in logs for {resource_type}."
 
 gcp_monitor_agent = LlmAgent(
-    name="gcp_monitor",
+    name="gcp_monitor_agent",
     model="gemini-2.5-pro",
     description="Analyzes GCP monitoring and logging data to track HPC resources like GCE VMs and Filestore.",
-    instruction=prompt.GCP_MONITOR_PROMPT,
-    output_key="gcp_monitoring_analysis_output",
+    instruction=prompt.HPC_ENV_ANALYST_PROMPT,
+    output_key="hpc_env_analyst_output",
     tools=[get_gce_vm_status, get_filestore_usage, query_hpc_logs],
 )

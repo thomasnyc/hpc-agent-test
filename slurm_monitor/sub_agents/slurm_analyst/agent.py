@@ -1,5 +1,6 @@
 """HPC Environment Analyst sub-agent for querying Slurm status."""
 
+from google.adk import Agent
 import subprocess
 from google.adk.agents import LlmAgent
 
@@ -39,11 +40,11 @@ def run_squeue(partition: str = "") -> str:
     except FileNotFoundError:
         return "Error: 'squeue' command not found. Ensure this is running on a Slurm node."
 
-env_analyst_agent = LlmAgent(
-    name="env_analyst",
+slurm_analyst_agent = LlmAgent(
+    name="slurm_analyst_agent",
     model="gemini-2.5-pro",
     description="Analyzes the Slurm cluster environment and node status using tools like sinfo and squeue.",
-    instruction=prompt.ENV_ANALYST_PROMPT,
+    instruction=prompt.SLURM_ANALYST_PROMPT,
     output_key="cluster_environment_analysis_output",
     tools=[run_sinfo, run_squeue],
 )

@@ -10,8 +10,8 @@ from .sub_agents.slurm_analyst import slurm_analyst_agent
 MODEL = "gemini-2.5-pro"
 
 
-financial_coordinator = LlmAgent(
-    name="financial_coordinator",
+hpc_coordinator = LlmAgent(
+    name="hpc_coordinator",
     model=MODEL,
     description=(
         "guide users through a structured process to receive HPC "
@@ -25,4 +25,4 @@ financial_coordinator = LlmAgent(
     ],
 )
 
-root_agent = financial_coordinator
+root_agent = hpc_coordinator
