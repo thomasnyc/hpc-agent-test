@@ -4,7 +4,7 @@ from google.adk import Agent
 import subprocess
 from google.adk.agents import LlmAgent
 
-from .. import prompt
+from . import prompt
 
 def run_sinfo(partition: str = "") -> str:
     """Gets the cluster status using the sinfo command.
