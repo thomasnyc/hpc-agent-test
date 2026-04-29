@@ -1,3 +1,3 @@
 """HPC Environment sub-agent package."""
 
-from .sub_agents.hpc_env_analyst.agent import env_analyst_agent
+from .agent import hpc_env_analyst_agent
